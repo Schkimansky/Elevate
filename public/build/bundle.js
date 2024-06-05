@@ -56,6 +56,14 @@ var app = (function () {
     function children(element) {
         return Array.from(element.childNodes);
     }
+    function set_style(node, key, value, important) {
+        if (value == null) {
+            node.style.removeProperty(key);
+        }
+        else {
+            node.style.setProperty(key, value, important ? 'important' : '');
+        }
+    }
     function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
         const e = document.createEvent('CustomEvent');
         e.initCustomEvent(type, bubbles, cancelable, detail);
@@ -373,9 +381,12 @@ var app = (function () {
     	let t1;
     	let nav2;
     	let span1;
+    	let t2;
+    	let br;
     	let t3;
+    	let t4;
     	let span2;
-    	let t5;
+    	let t6;
     	let nav1;
 
     	const block = {
@@ -388,30 +399,35 @@ var app = (function () {
     			t1 = space();
     			nav2 = element("nav");
     			span1 = element("span");
-    			span1.textContent = "Welcome to";
-    			t3 = space();
+    			t2 = text("Welcome to");
+    			br = element("br");
+    			t3 = text("ElevateHost");
+    			t4 = space();
     			span2 = element("span");
-    			span2.textContent = "ElevateHost";
-    			t5 = space();
+    			span2.textContent = `${/*info1*/ ctx[0]}`;
+    			t6 = space();
     			nav1 = element("nav");
     			attr_dev(span0, "id", "topbar-header");
-    			attr_dev(span0, "class", "purplelbl svelte-91etjt");
-    			add_location(span0, file, 7, 12, 87);
+    			attr_dev(span0, "class", "purplelbl svelte-1c7yaek");
+    			add_location(span0, file, 7, 12, 273);
     			attr_dev(nav0, "id", "topbar");
-    			attr_dev(nav0, "class", "svelte-91etjt");
-    			add_location(nav0, file, 6, 8, 57);
-    			attr_dev(span1, "class", "big-header header svelte-91etjt");
-    			add_location(span1, file, 11, 12, 207);
-    			attr_dev(span2, "class", "big-header header svelte-91etjt");
-    			add_location(span2, file, 12, 12, 269);
-    			add_location(nav1, file, 13, 8, 328);
+    			attr_dev(nav0, "class", "svelte-1c7yaek");
+    			add_location(nav0, file, 6, 8, 243);
+    			add_location(br, file, 11, 56, 437);
+    			attr_dev(span1, "class", "big-header margin80 svelte-1c7yaek");
+    			add_location(span1, file, 11, 12, 393);
+    			attr_dev(span2, "class", "info-header margin80 purplelbl svelte-1c7yaek");
+    			set_style(span2, "width", "380px");
+    			set_style(span2, "line-height", "30px");
+    			add_location(span2, file, 13, 12, 473);
+    			add_location(nav1, file, 14, 8, 582);
     			attr_dev(nav2, "id", "big-header-box");
-    			attr_dev(nav2, "class", "svelte-91etjt");
-    			add_location(nav2, file, 10, 8, 169);
+    			attr_dev(nav2, "class", "svelte-1c7yaek");
+    			add_location(nav2, file, 10, 8, 355);
     			attr_dev(nav3, "id", "home");
-    			attr_dev(nav3, "class", "svelte-91etjt");
-    			add_location(nav3, file, 5, 4, 33);
-    			add_location(main, file, 4, 0, 22);
+    			attr_dev(nav3, "class", "svelte-1c7yaek");
+    			add_location(nav3, file, 5, 4, 219);
+    			add_location(main, file, 4, 0, 208);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -424,9 +440,12 @@ var app = (function () {
     			append_dev(nav3, t1);
     			append_dev(nav3, nav2);
     			append_dev(nav2, span1);
-    			append_dev(nav2, t3);
+    			append_dev(span1, t2);
+    			append_dev(span1, br);
+    			append_dev(span1, t3);
+    			append_dev(nav2, t4);
     			append_dev(nav2, span2);
-    			append_dev(nav2, t5);
+    			append_dev(nav2, t6);
     			append_dev(nav2, nav1);
     		},
     		p: noop,
@@ -448,16 +467,27 @@ var app = (function () {
     	return block;
     }
 
-    function instance($$self, $$props) {
+    function instance($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
+    	let info1 = "ElevateHost is your reliable high-speed Minecraft hosting solution. With our dedicated servers and our Free 1TB+ DDOS protection, You will be gaining players in no time.";
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<App> was created with unknown prop '${key}'`);
     	});
 
-    	return [];
+    	$$self.$capture_state = () => ({ info1 });
+
+    	$$self.$inject_state = $$props => {
+    		if ('info1' in $$props) $$invalidate(0, info1 = $$props.info1);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [info1];
     }
 
     class App extends SvelteComponentDev {

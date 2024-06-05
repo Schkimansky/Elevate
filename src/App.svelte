@@ -1,5 +1,5 @@
 <script>
-	
+    let info1 = "ElevateHost is your reliable high-speed Minecraft hosting solution. With our dedicated servers and our Free 1TB+ DDOS protection, You will be gaining players in no time."
 </script>
 
 <main>
@@ -9,8 +9,9 @@
         </nav>
 
         <nav id="big-header-box">
-            <span class="big-header header">Welcome to</span>
-            <span class="big-header header">ElevateHost</span>
+            <span class="big-header margin80">Welcome to<br>ElevateHost</span>
+
+            <span class="info-header margin80 purplelbl" style="width: 380px; line-height: 30px;">{info1}</span>
         <nav>
     </nav>
 </main>
@@ -35,10 +36,9 @@
     }
     #big-header-box {
         display: flex;
-        margin-top: 100px;
+        margin-top: 35px;
         flex-direction: column;
+        gap: 20px;
     }
-    .header {
-        margin-left: 80px;
-    }
+    .margin80 { margin-left: 80px; }
 </style>

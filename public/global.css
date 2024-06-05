@@ -68,12 +68,18 @@ button:focus {
 
 .big-header {
 	color: #16163f;
-	font-weight: 800;
-	font-size: 55px;
+	font-weight: 900;
+	font-size: 60px;
 }
 
 .normal-header {
 	color: #16163f;
 	font-weight: 800;
 	font-size: 55px;
+}
+
+.info-header {
+	color: #16163f;
+	font-weight: 300;
+	font-size: 20px;
 }
