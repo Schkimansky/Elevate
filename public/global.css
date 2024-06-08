@@ -7,9 +7,11 @@ html, body {
 
 body {
 	color: #333;
+	max-width: 99%;
 	background-color: white;
 	box-sizing: border-box;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	overflow-x: hidden;
 }
 
 a {
@@ -62,24 +64,44 @@ button:focus {
 	border-color: #666;
 }
 
-.purplelbl {
-	color: #16163f;
-}
+.purplecolor { color: #16163f !important; }
 
 .big-header {
-	color: #16163f;
-	font-weight: 900;
+	font-weight: 1000;
 	font-size: 60px;
 }
 
 .normal-header {
-	color: #16163f;
 	font-weight: 800;
 	font-size: 55px;
 }
 
-.info-header {
-	color: #16163f;
+.small-header {
+	color: #291953 !important;
 	font-weight: 300;
-	font-size: 20px;
+	font-size: 17px;
+}
+
+.pageinfo-header {
+	/* Text */
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	/* Color */
+	color: #9e3ffd;
+}
+
+#homebackground {
+	/* Position */
+	position: absolute;
+	top: -50px;
+	left: 0px;
+	/* Size */
+	width: 100%;
+	height: 100vh;
+	/* Z-Index */
+	z-index: -1;
+	/* Overflow */
+	overflow-x: hidden;
 }
